@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html>
+
+    <title>
+        DailyBasket - DBS | Office Products
+    </title>
+
+    <script src="https://kit.fontawesome.com/5471644867.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/Baby Care Category Page CSS.css">
+    
+    <script src="../JS/Filter JS.js" defer></script>
+    
+    <body>
+
+        <section id="popular-product">
+            <!--heading----------->
+            <div class="product-heading">
+                <h2 class = 'fruits-heading'>Office Products</h2>
+            </div>
+            
+            <!--filters----------->
+            <div class="filter-section">
+                <div class="filter-group">
+                    <label for="priceFilter">Price Range:</label>
+                    <select id="priceFilter">
+                        <option value="all">All Prices</option>
+                        <option value="0-100">Under Rs. 100</option>
+                        <option value="100-200">Rs. 100 - Rs. 200</option>
+                        <option value="200-300">Rs. 200 - Rs. 300</option>
+                        <option value="300+">Above Rs. 300</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="sortFilter">Sort By:</label>
+                    <select id="sortFilter">
+                        <option value="default">Default</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name-asc">Name: A to Z</option>
+                        <option value="name-desc">Name: Z to A</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="ratingFilter">Rating:</label>
+                    <select id="ratingFilter">
+                        <option value="all">All Ratings</option>
+                        <option value="4">4+ Stars</option>
+                        <option value="3">3+ Stars</option>
+                        <option value="2">2+ Stars</option>
+                    </select>
+                </div>
+                
+                <button class="clear-filters-btn" onclick="clearFilters()">
+                    <i class="fas fa-times"></i> Clear Filters
+                </button>
+            </div>
+            
+            <!--box-container------>
+            <div class="product-container">
+                <!--box---------->
+                <div class="product-box" style = "height: 95%;" data-price="210" data-name="Kangaroo Stapler No.-10" data-rating="4">
+                    <img alt="Kangaroo Stapler No.-10" src="https://i.imgur.com/mZtkksq.jpg">
+                    <strong>Kangaroo Stapler No.-10</strong>
+                    <span class="quantity">5</span>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <span class="rating-value">(4.0)</span>
+                    </div>
+                    <span class="price">Rs. 210</span>
+                    <!--cart-btn------->
+                    <a href="Shopping Cart HTML.html" class="cart-btn" style = 'text-decoration: none;'>
+                        <i class="fas fa-shopping-bag"></i> Add to Cart
+                    </a>
+                    <!--like-btn------->
+                    <a class="like-btn" style = 'text-decoration: none;'>
+                        <i class="far fa-heart"></i>
+                    </a>
+                </div>
+                <!--box---------->
+                <div class="product-box" style="height: 95%;">
+                    <img alt="Kangaroo Punching Machine" src="https://i.imgur.com/KkYKE2x.jpg">
+                    <strong>Kangaroo Punching Machine</strong>
+                    <span class="quantity">1</span>
+                    <span class="price">Rs. 142</span>
+                    <!--cart-btn------->
+                    <a href="Shopping Cart HTML.html" class="cart-btn" style = 'text-decoration: none;'>
+                        <i class="fas fa-shopping-bag"></i> Add to Cart
+                    </a>
+                    <!--like-btn------->
+                    <a class="like-btn" style = 'text-decoration: none;'>
+                        <i class="far fa-heart"></i>
+                    </a>
+                </div>
+                <!--box---------->
+                <div class="product-box" style="height: 95%;">
+                    <img alt="Natraj HB Pencils" src="https://i.imgur.com/fFUTngw.jpg">
+                    <strong>Natraj HB Pencils</strong>
+                    <span class="quantity">Pack of 10</span>
+                    <span class="price">Rs. 300</span>
+                    <!--cart-btn------->
+                    <a href="Shopping Cart HTML.html" class="cart-btn" style = 'text-decoration: none;'>
+                        <i class="fas fa-shopping-bag"></i> Add to Cart
+                    </a>
+                    <!--like-btn------->
+                    <a class="like-btn" style = 'text-decoration: none;'>
+                        <i class="far fa-heart"></i>
+                    </a>
+                </div>
+                <!--box---------->
+                <div class="product-box">
+                    <img alt="Natraj Ball Pens" src="https://i.imgur.com/yl5NWbN.jpg">
+                    <strong>Natraj Ball Pens</strong>
+                    <span class="quantity">Pack of 10</span>
+                    <span class="price">Rs. 167</span>
+                    <!--cart-btn------->
+                    <a href="Shopping Cart HTML.html" class="cart-btn" style = 'text-decoration: none;'>
+                        <i class="fas fa-shopping-bag"></i> Add to Cart
+                    </a>
+                    <!--like-btn------->
+                    <a class="like-btn" style = 'text-decoration: none;'>
+                        <i class="far fa-heart"></i>
+                    </a>
+                </div>
+                <!--box---------->
+                <div class="product-box">
+                    <img alt="Post It Sticky Notes" src="https://i.imgur.com/tHqNkY2.jpg">
+                    <strong>Post It Sticky Notes</strong>
+                    <span class="quantity">Pack of 6</span>
+                    <span class="price">Rs. 358</span>
+                    <!--cart-btn------->
+                    <a href="Shopping Cart HTML.html" class="cart-btn" style = 'text-decoration: none;'>
+                        <i class="fas fa-shopping-bag"></i> Add to Cart
+                    </a>
+                    <!--like-btn------->
+                    <a class="like-btn" style = 'text-decoration: none;'>
+                        <i class="far fa-heart"></i>
+                    </a>
+                </div>
+                <!--box---------->
+                <div class="product-box">
+                    <img alt="Kangaroo Stapler Pins No.-10" src="https://i.imgur.com/BZfAFQm.jpg">
+                    <strong>Kangaroo Stapler Pins No.-10</strong>
+                    <span class="quantity">Pack of 5</span>
+                    <span class="price">Rs. 237</span>
+                    <!--cart-btn------->
+                    <a href="Shopping Cart HTML.html" class="cart-btn" style = 'text-decoration: none;'>
+                        <i class="fas fa-shopping-bag"></i> Add to Cart
+                    </a>
+                    <!--like-btn------->
+                    <a class="like-btn" style = 'text-decoration: none;'>
+                        <i class="far fa-heart"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </body>
+
+</html>

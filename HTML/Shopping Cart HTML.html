@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DailyBasket - DBS | Shopping Cart</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/Shopping Cart Modern.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/Shopping Cart CSS.css">
+    <script src="https://kit.fontawesome.com/5471644867.js" crossorigin="anonymous"></script>
+    <script src="../JS/Security.js"></script>
+    <script src="../JS/SessionManager.js"></script>
+    <script src="../JS/ProductDatabase.js"></script>
+    <script src="../JS/ProductRenderer.js"></script>
+    <script src="../JS/ShoppingCartModern.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Shopping Cart</h1>
+            <nav>
+                <a href="index.html" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Continue Shopping
+                </a>
+            </nav>
+        </header>
+
+        <main class="cart">
+            <section class="products">
+                <!-- Products will be dynamically loaded here -->
+            </section>
+
+            <aside class="cart-total">
+                <!-- Cart summary will be dynamically loaded here -->
+            </aside>
+        </main>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+        <div class="loading-spinner"></div>
+        <p>Loading your cart...</p>
+    </div>
+</body>
+</html>

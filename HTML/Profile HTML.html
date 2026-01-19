@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html leng="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DailyBasket - DBS | Profile</title>
+    <link rel="stylesheet" href="../CSS/Profile CSS.css">
+    <script src="https://kit.fontawesome.com/cacf32ff12.js" crossorigin="anonymous"></script>
+    <script src="../JS/Security.js"></script>
+    <script src="../JS/SessionManager.js"></script>
+    <script src="../JS/Profile JS.js"></script>
+    <script src="../JS/SessionDashboard.js"></script>
+</head>
+<body>
+
+
+
+    <div class="container">
+        <div class="leftbox">
+            <nav>
+                <a onclick="tabs(0)" class="tab active">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a onclick="tabs(1)" class="tab">
+                    <i class="far fa-credit-card"></i>
+                </a>
+                <a onclick="tabs(2)" class="tab">
+                    <i class="fas fa-tv"></i>
+                </a>
+                <a onclick="tabs(3)" class="tab">
+                    <i class="fas fa-tasks"></i>
+                </a>
+                <a onclick="tabs(4)" class="tab">
+                    <i class="fas fa-cog"></i>
+                </a>
+            </nav>
+        </div>
+        <div class="rightbox">
+            <div class="profile tabShow">
+                <h1>Personal Information</h1>
+                <form id="profileForm">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" class="input" value="Dheeraj Sharma" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="input" value="dheerajsharma@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" class="input" value="+91 9876543210" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select id="gender" class="input">
+                            <option value="male" selected>Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="birthday">Birthday</label>
+                        <input type="date" id="birthday" class="input" value="1990-08-26">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <textarea id="address" class="input textarea" rows="3">402, Sector 19, Noida, Uttar Pradesh</textarea>
+                    </div>
+                    <button type="submit" class="btn">
+                        <i class="fas fa-save"></i> Update Profile
+                    </button>
+                </form>
+            </div>
+            <div class="orders tabShow">
+                <h1>Order History</h1>
+                
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <div class="summary-card">
+                        <h3>Total Orders</h3>
+                        <p class="summary-number">24</p>
+                    </div>
+                    <div class="summary-card">
+                        <h3>Total Spent</h3>
+                        <p class="summary-amount">Rs. 15,420</p>
+                    </div>
+                    <div class="summary-card">
+                        <h3>Active Orders</h3>
+                        <p class="summary-number">2</p>
+                    </div>
+                    <div class="summary-card">
+                        <h3>Pending Orders</h3>
+                        <p class="summary-number">1</p>
+                    </div>
+                    <div class="summary-card">
+                        <h3>Cancelled Orders</h3>
+                        <p class="summary-number">2</p>
+                    </div>
+                </div>
+                
+                <!-- Search and Filter -->
+                <div class="order-controls">
+                    <div class="search-orders">
+                        <input type="text" id="orderSearch" placeholder="Search orders by ID, product name...">
+                        <button id="searchOrderBtn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="filter-orders">
+                        <select id="orderFilter">
+                            <option value="all">All Orders</option>
+                            <option value="delivered">Delivered</option>
+                            <option value="processing">Processing</option>
+                            <option value="shipped">Shipped</option>
+                            <option value="cancelled">Cancelled</option>
+                            <option value="pending">Pending</option>
+                        </select>
+                        <select id="timeFilter">
+                            <option value="all">All Time</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Order List -->
+                <div class="order-list" id="orderList">
+                    <div class="order-item">
+                        <div class="order-header">
+                            <span class="order-id">#ORD-2024-001</span>
+                            <span class="order-date">Jan 10, 2024</span>
+                            <span class="order-status delivered">Delivered</span>
+                            <span class="order-total">Rs. 510</span>
+                        </div>
+                        <div class="order-products">
+                            <div class="product-item">
+                                <img src="https://i.imgur.com/mZtkksq.jpg" alt="Stapler">
+                                <div class="product-details">
+                                    <h4>Kangaroo Stapler No.-10</h4>
+                                    <p>Quantity: 1 | Price: Rs. 210</p>
+                                </div>
+                            </div>
+                            <div class="product-item">
+                                <img src="https://i.imgur.com/fFUTngw.jpg" alt="Pencils">
+                                <div class="product-details">
+                                    <h4>Natraj HB Pencils</h4>
+                                    <p>Quantity: 2 | Price: Rs. 300</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-actions">
+                            <button class="btn-small" onclick="viewOrderDetails('ORD-2024-001')">
+                                <i class="fas fa-eye"></i> View Details
+                            </button>
+                            <button class="btn-small btn-primary" onclick="reorderItems('ORD-2024-001')">
+                                <i class="fas fa-redo"></i> Reorder
+                            </button>
+                            <button class="btn-small" onclick="downloadInvoice('ORD-2024-001')">
+                                <i class="fas fa-download"></i> Download Invoice
+                            </button>
+                            <button class="btn-small" onclick="trackOrder('ORD-2024-001')">
+                                <i class="fas fa-truck"></i> Track Package
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="order-item">
+                        <div class="order-header">
+                            <span class="order-id">#ORD-2024-002</span>
+                            <span class="order-date">Jan 8, 2024</span>
+                            <span class="order-status processing">Processing</span>
+                            <span class="order-total">Rs. 167</span>
+                        </div>
+                        <div class="order-products">
+                            <div class="product-item">
+                                <img src="https://i.imgur.com/yl5NWbN.jpg" alt="Pens">
+                                <div class="product-details">
+                                    <h4>Natraj Ball Pens</h4>
+                                    <p>Quantity: 1 | Price: Rs. 167</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-actions">
+                            <button class="btn-small" onclick="viewOrderDetails('ORD-2024-002')">
+                                <i class="fas fa-eye"></i> View Details
+                            </button>
+                            <button class="btn-small btn-danger" onclick="cancelOrder('ORD-2024-002')">
+                                <i class="fas fa-times"></i> Cancel Order
+                            </button>
+                            <button class="btn-small" onclick="trackOrder('ORD-2024-002')">
+                                <i class="fas fa-truck"></i> Track Package
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="order-item">
+                        <div class="order-header">
+                            <span class="order-id">#ORD-2023-123</span>
+                            <span class="order-date">Dec 15, 2023</span>
+                            <span class="order-status shipped">Shipped</span>
+                            <span class="order-total">Rs. 450</span>
+                        </div>
+                        <div class="order-products">
+                            <div class="product-item">
+                                <img src="https://i.imgur.com/tHqNkY2.jpg" alt="Sticky Notes">
+                                <div class="product-details">
+                                    <h4>Post It Sticky Notes</h4>
+                                    <p>Quantity: 3 | Price: Rs. 358</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-actions">
+                            <button class="btn-small" onclick="viewOrderDetails('ORD-2023-123')">
+                                <i class="fas fa-eye"></i> View Details
+                            </button>
+                            <button class="btn-small btn-primary" onclick="confirmDelivery('ORD-2023-123')">
+                                <i class="fas fa-check"></i> Confirm Delivery
+                            </button>
+                            <button class="btn-small" onclick="trackOrder('ORD-2023-123')">
+                                <i class="fas fa-truck"></i> Track Package
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- No Orders Message -->
+                <div class="no-orders-message" id="noOrdersMessage" style="display: none;">
+                    <i class="fas fa-clipboard-list"></i>
+                    <h3>No Orders Found</h3>
+                    <p>You haven't placed any orders yet. Start shopping to see your order history here!</p>
+                    <button class="btn btn-primary" onclick="window.location.href='index.html'">
+                        <i class="fas fa-shopping-cart"></i> Start Shopping
+                    </button>
+                </div>
+            </div>
+            <div class="wishlist tabShow">
+                <h1>My Wishlist</h1>
+                <div class="wishlist-grid">
+                    <div class="wishlist-item">
+                        <img src="https://i.imgur.com/KkYKE2x.jpg" alt="Punching Machine">
+                        <div class="wishlist-info">
+                            <h4>Kangaroo Punching Machine</h4>
+                            <p class="wishlist-price">Rs. 142</p>
+                            <p class="wishlist-date">Added on Jan 5, 2024</p>
+                        </div>
+                        <div class="wishlist-actions">
+                            <button class="btn-small btn-primary">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                            <button class="btn-small btn-danger">
+                                <i class="fas fa-trash"></i> Remove
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="wishlist-item">
+                        <img src="https://i.imgur.com/tHqNkY2.jpg" alt="Sticky Notes">
+                        <div class="wishlist-info">
+                            <h4>Post It Sticky Notes</h4>
+                            <p class="wishlist-price">Rs. 358</p>
+                            <p class="wishlist-date">Added on Jan 3, 2024</p>
+                        </div>
+                        <div class="wishlist-actions">
+                            <button class="btn-small btn-primary">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                            <button class="btn-small btn-danger">
+                                <i class="fas fa-trash"></i> Remove
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="wishlist-item">
+                        <img src="https://i.imgur.com/BZfAFQm.jpg" alt="Stapler Pins">
+                        <div class="wishlist-info">
+                            <h4>Kangaroo Stapler Pins No.-10</h4>
+                            <p class="wishlist-price">Rs. 237</p>
+                            <p class="wishlist-date">Added on Dec 28, 2023</p>
+                        </div>
+                        <div class="wishlist-actions">
+                            <button class="btn-small btn-primary">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                            <button class="btn-small btn-danger">
+                                <i class="fas fa-trash"></i> Remove
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="wishlist-summary">
+                    <p><strong>3 items</strong> in wishlist</p>
+                    <p>Total value: <strong>Rs. 737</strong></p>
+                </div>
+            </div>
+            <div class="Privacy tabShow">
+                <h1>Privacy Setting</h1>
+                <h2>Manage Email Notification</h2>
+               <p></p>
+                <h2>Manage Privacy Settings</h2>
+                <p></p>
+                <h2>Terms Of Use</h2>
+                <p></p>
+                <button class="btn">
+                    update
+                </button>
+            </div>
+            <div class="settings tabShow">
+                <h1>Account Settings</h1>
+                <div class="settings-grid">
+                    <div class="setting-group">
+                        <h3>Notifications</h3>
+                        <div class="setting-item">
+                            <label class="switch-label">
+                                <input type="checkbox" id="emailNotifications" checked>
+                                <span class="switch"></span>
+                                Email Notifications
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label class="switch-label">
+                                <input type="checkbox" id="smsNotifications">
+                                <span class="switch"></span>
+                                SMS Notifications
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label class="switch-label">
+                                <input type="checkbox" id="promoNotifications" checked>
+                                <span class="switch"></span>
+                                Promotional Offers
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="setting-group">
+                        <h3>Privacy</h3>
+                        <div class="setting-item">
+                            <label class="switch-label">
+                                <input type="checkbox" id="profileVisibility" checked>
+                                <span class="switch"></span>
+                                Public Profile
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label class="switch-label">
+                                <input type="checkbox" id="orderHistory" checked>
+                                <span class="switch"></span>
+                                Show Order History
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="setting-group">
+                        <h3>Security</h3>
+                        <div class="setting-item">
+                            <button class="btn-small">
+                                <i class="fas fa-key"></i> Change Password
+                            </button>
+                        </div>
+                        <div class="setting-item">
+                            <button class="btn-small">
+                                <i class="fas fa-shield-alt"></i> Two-Factor Authentication
+                            </button>
+                        </div>
+                        <div class="setting-item">
+                            <button class="btn-small btn-danger">
+                                <i class="fas fa-sign-out-alt"></i> Sign Out All Devices
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn">
+                    <i class="fas fa-save"></i> Save Settings
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="Profile JS.js"></script>
+
+</body>
+</html>
